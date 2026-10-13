@@ -1,11 +1,6 @@
-Add 3D cartoon mascot and polish Black Shadow Team landing page
+Add office-city public-view section and unique 3D portal styling
 
-This update adds a playful 3D-style mascot to the landing page, improves the hero section, and keeps the site lightweight and responsive.
-
-Changes:
-- Added animated mascot with eye tracking and idle wave behavior
-- Updated the landing page to support a more premium 3D UI
-- Kept the project static so it can be hosted on GitHub Pages for free
+This update adds a city-office scene with a stylized gate and employee silhouettes to give the page a more unusual public-facing workspace look.
 
 Run locally:
 ```bash
@@ -17,14 +12,13 @@ Then open:
 http://localhost:8000
 ```
 
-Publish on GitHub Pages:
-1. Go to GitHub repository settings
-2. Open Pages
-3. Select branch: main
-4. Folder: /root
-5. Save
+GitHub Pages publish:
+1. Open repository settings
+2. Go to Pages
+3. Branch: main | Folder: /root
+4. Save
 
-Live URL pattern:
+Live URL format:
 ```text
 https://<username>.github.io/black-shadow-team/
 ```
