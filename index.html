@@ -3,290 +3,230 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Black Shadow Team | Software • Security • AI</title>
-    <meta name="description" content="Black Shadow Team builds secure software, AI-driven systems, and digital experiences for ambitious brands." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+    <title>Black Shadow Team | Software, Security & AI</title>
+    <meta name="description" content="Black Shadow Team builds software, cybersecurity systems, and AI-powered products with a modern digital-first approach." />
+    <meta property="og:title" content="Black Shadow Team" />
+    <meta property="og:description" content="Software • Security • AI" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-shell">
-      <canvas id="starfield"></canvas>
+    <div class="bg-noise"></div>
+    <canvas id="stars"></canvas>
 
-      <header class="topbar container">
-        <div class="brand-wrap">
-          <div class="brand-mark">B</div>
-          <div class="brand-copy">
-            <div class="brand-title">Black Shadow Team</div>
-            <div class="brand-subtitle">Software • Security • AI</div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">B</div>
+        <div class="brand-copy">
+          <span class="brand-name">Black Shadow Team</span>
+          <small>Software • Security • AI</small>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#profiles">Profiles</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#contact" class="btn btn-primary">Start Project</a>
+    </header>
+
+    <main class="hero container">
+      <section class="hero-copy">
+        <p class="eyebrow">Digital Product Studio</p>
+        <h1>Build bold software <span>for tomorrow.</span></h1>
+        <p class="lead">
+          Black Shadow Team helps businesses launch secure, high-performance digital products.
+          We design, build, automate, and protect software systems that scale.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book a Call</a>
+          <a href="#services" class="btn btn-secondary">Explore Services</a>
+        </div>
+
+        <ul class="hero-metrics">
+          <li>
+            <strong>10+</strong>
+            <span>Years</span>
+          </li>
+          <li>
+            <strong>100+</strong>
+            <span>Projects</span>
+          </li>
+          <li>
+            <strong>99%</strong>
+            <span>Reliability</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="hero-visual" id="profiles">
+        <div class="mascot-wrap">
+          <div class="mascot" id="mascot">
+            <div class="mascot-body">
+              <div class="ear ear-left"></div>
+              <div class="ear ear-right"></div>
+              <div class="face">
+                <div class="eye eye-left"><span class="pupil"></span></div>
+                <div class="eye eye-right"><span class="pupil"></span></div>
+                <div class="mouth"></div>
+              </div>
+              <div class="hand hand-left"></div>
+              <div class="hand hand-right"></div>
+            </div>
+            <div class="speech" id="speech">Welcome to Black Shadow Team</div>
           </div>
         </div>
 
-        <nav class="main-nav">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#process">Process</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <a href="#contact" class="btn btn-primary">Book a Call</a>
-      </header>
-
-      <main>
-        <section class="hero container">
-          <div class="hero-copy">
-            <div class="eyebrow">Digital Product Studio</div>
-            <h1>Black Shadow <span>Team</span></h1>
-            <p class="subtitle">
-              We design, build, secure, and scale digital products for brands that want speed,
-              trust, and technical precision. Led by <strong>Musfiqur Rahim (Mahin)</strong>.
-            </p>
-
-            <div class="cta-row">
-              <a href="#contact" class="btn btn-primary">Start a Project</a>
-              <a href="#services" class="btn btn-ghost">Explore Services</a>
-            </div>
-
-            <div class="metrics">
-              <div class="metric-box">
-                <strong data-count="10">0</strong>
-                <span>Years</span>
-              </div>
-              <div class="metric-box">
-                <strong data-count="100">0</strong>
-                <span>Projects</span>
-              </div>
-              <div class="metric-box">
-                <strong data-count="99">0</strong>
-                <span>Uptime</span>
-              </div>
+        <div class="profile-card tilt-card">
+          <div class="profile-top">
+            <div class="avatar">M</div>
+            <div>
+              <small>Founder & CEO</small>
+              <h3>Musfiqur Rahim</h3>
             </div>
           </div>
 
-          <div class="hero-visual">
-            <div class="mascot-card" id="mascot">
-              <div class="mascot-body">
-                <div class="ear left"></div>
-                <div class="ear right"></div>
-                <div class="face">
-                  <div class="eye left"><span class="pupil"></span></div>
-                  <div class="eye right"><span class="pupil"></span></div>
-                  <div class="smile"></div>
-                </div>
-                <div class="arm left"></div>
-                <div class="arm right"></div>
-              </div>
-              <div class="speech-bubble">Welcome to Black Shadow Team</div>
-            </div>
-
-            <div class="profile-panel glass-panel">
-              <div class="profile-head">
-                <div class="avatar">M</div>
-                <div>
-                  <div class="profile-role">Founder & CEO</div>
-                  <h3>Musfiqur Rahim</h3>
-                </div>
-              </div>
-
-              <ul class="profile-links">
-                <li><a href="https://github.com/blackshadowteamnet-netizen" target="_blank">GitHub</a></li>
-                <li><a href="https://x.com/BlackShadoTeam" target="_blank">X / Twitter</a></li>
-                <li><a href="https://hashnode.com/@black-shadow-team" target="_blank">Hashnode</a></li>
-                <li><a href="https://medium.com/@blackshadowteam.net" target="_blank">Medium</a></li>
-                <li><a href="https://www.instagram.com/black_shadow_team_x/" target="_blank">Instagram</a></li>
-              </ul>
-            </div>
+          <div class="link-list">
+            <h4>Social Profiles</h4>
+            <ul>
+              <li><a href="https://github.com/blackshadowteamnet-netizen" target="_blank">GitHub</a></li>
+              <li><a href="https://x.com/BlackShadoTeam" target="_blank">X / Twitter</a></li>
+              <li><a href="https://substack.com/@blackshadowteam" target="_blank">Substack</a></li>
+              <li><a href="https://hashnode.com/@black-shadow-team" target="_blank">Hashnode</a></li>
+              <li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li>
+            </ul>
           </div>
-        </section>
-
-        <section id="about" class="container section">
-          <div class="section-head">
-            <div class="eyebrow">Why choose us</div>
-            <h2>Built for growth, security, and execution.</h2>
-          </div>
-
-          <div class="feature-grid">
-            <article class="feature glass-panel tilt-card">
-              <div class="feature-index">01</div>
-              <h3>Software Delivery</h3>
-              <p>From MVP to production systems, we ship stable products with clean architecture and measurable business value.</p>
-            </article>
-            <article class="feature glass-panel tilt-card">
-              <div class="feature-index">02</div>
-              <h3>Cyber Security</h3>
-              <p>We harden software, reduce attack vectors, and design resilient systems that protect user trust.</p>
-            </article>
-            <article class="feature glass-panel tilt-card">
-              <div class="feature-index">03</div>
-              <h3>AI & Automation</h3>
-              <p>Smart integrations and AI workflows that minimize wasted effort while maximizing efficiency.</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="services" class="container section">
-          <div class="section-head">
-            <div class="eyebrow">Services</div>
-            <h2>What we build.</h2>
-          </div>
-
-          <div class="service-grid">
-            <div class="service-card glass-panel tilt-card">
-              <div class="service-tag">01</div>
-              <h3>Product Engineering</h3>
-              <p>Web apps, SaaS platforms, dashboards, and product experiences tailored for growth.</p>
-            </div>
-            <div class="service-card glass-panel tilt-card">
-              <div class="service-tag">02</div>
-              <h3>Cybersecurity</h3>
-              <p>Secure architecture reviews, system hardening, and risk-aware digital operations.</p>
-            </div>
-            <div class="service-card glass-panel tilt-card">
-              <div class="service-tag">03</div>
-              <h3>AI Solutions</h3>
-              <p>Automation pipelines, AI workflows, and smart internal systems that improve output.</p>
-            </div>
-            <div class="service-card glass-panel tilt-card">
-              <div class="service-tag">04</div>
-              <h3>Brand & Design</h3>
-              <p>Modern UI systems, digital identity kits, and premium visual communication.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="city" class="container section office-showcase">
-          <div class="section-head">
-            <div class="eyebrow">HQ View</div>
-            <h2>Public-facing workspace, modern command center.</h2>
-          </div>
-
-          <div class="city-scene glass-panel tilt-card">
-            <div class="city-glow"></div>
-            <div class="skyline">
-              <span class="tower tower-a"></span>
-              <span class="tower tower-b"></span>
-              <span class="tower tower-c"></span>
-              <span class="tower tower-d"></span>
-            </div>
-
-            <div class="front-gate">
-              <div class="gate-door left"></div>
-              <div class="gate-door right"></div>
-              <div class="gate-center"></div>
-              <div class="gate-text">BLACK SHADOW</div>
-            </div>
-
-            <div class="screen-row">
-              <span class="screen one"></span>
-              <span class="screen two"></span>
-              <span class="screen three"></span>
-            </div>
-
-            <div class="employee-row">
-              <span class="employee one"></span>
-              <span class="employee two"></span>
-              <span class="employee three"></span>
-              <span class="employee four"></span>
-            </div>
-          </div>
-        </section>
-
-        <section id="process" class="container section">
-          <div class="section-head">
-            <div class="eyebrow">Process</div>
-            <h2>From idea to launch.</h2>
-          </div>
-
-          <div class="process-grid">
-            <div class="process-card glass-panel tilt-card">
-              <span>01</span>
-              <h3>Discover</h3>
-              <p>Clarify goals, define the product path, and validate the technical roadmap.</p>
-            </div>
-            <div class="process-card glass-panel tilt-card">
-              <span>02</span>
-              <h3>Build</h3>
-              <p>Design, develop, and iterate with clear milestones and real-world performance feedback.</p>
-            </div>
-            <div class="process-card glass-panel tilt-card">
-              <span>03</span>
-              <h3>Launch</h3>
-              <p>Ship confidently with deployment support, monitoring, and security-minded improvements.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="pricing" class="container section pricing-section">
-          <div class="section-head">
-            <div class="eyebrow">Packages</div>
-            <h2>Flexible engagement models.</h2>
-          </div>
-
-          <div class="pricing-grid">
-            <div class="pricing-card glass-panel tilt-card">
-              <div class="plan-name">Starter</div>
-              <div class="plan-price">$499</div>
-              <ul>
-                <li>Landing page & branding</li>
-                <li>Responsive design</li>
-                <li>Basic optimization</li>
-              </ul>
-              <a href="#contact" class="btn btn-ghost">Choose Starter</a>
-            </div>
-
-            <div class="pricing-card featured glass-panel tilt-card">
-              <div class="plan-name">Growth</div>
-              <div class="plan-price">$1,299</div>
-              <ul>
-                <li>Full product build</li>
-                <li>Custom dashboard</li>
-                <li>Security review</li>
-              </ul>
-              <a href="#contact" class="btn btn-primary">Choose Growth</a>
-            </div>
-
-            <div class="pricing-card glass-panel tilt-card">
-              <div class="plan-name">Scale</div>
-              <div class="plan-price">Custom</div>
-              <ul>
-                <li>AI automation</li>
-                <li>System engineering</li>
-                <li>Priority support</li>
-              </ul>
-              <a href="#contact" class="btn btn-ghost">Talk to Us</a>
-            </div>
-          </div>
-        </section>
-
-        <div class="cta-banner container">
-          <div>
-            <div class="eyebrow">Let’s build</div>
-            <h3>Need a product that looks premium and performs like a machine?</h3>
-          </div>
-          <a href="#contact" class="btn btn-primary">Book a Strategy Call</a>
         </div>
-      </main>
+      </section>
+    </main>
 
-      <footer id="contact" class="footer container">
-        <div class="footer-brand">
-          <div class="brand-mark small">B</div>
-          <div>
-            <div class="brand-title">Black Shadow Team</div>
-            <div class="brand-subtitle">Software • Security • AI</div>
+    <section class="city-section container" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">HQ View</p>
+        <h2>Public workspace, future-ready office.</h2>
+      </div>
+
+      <div class="city-scene tilt-card">
+        <div class="ambient-glow"></div>
+        <div class="skyline">
+          <div class="tower tower-a"></div>
+          <div class="tower tower-b"></div>
+          <div class="tower tower-c"></div>
+          <div class="tower tower-d"></div>
+        </div>
+
+        <div class="office-gate">
+          <div class="gate-frame">
+            <div class="door door-left"></div>
+            <div class="door door-right"></div>
+            <div class="gate-glow"></div>
+            <div class="gate-sign">BLACK SHADOW</div>
           </div>
         </div>
 
-        <div class="footer-links">
-          <a href="https://github.com/blackshadowteamnet-netizen" target="_blank">GitHub</a>
-          <a href="https://x.com/BlackShadoTeam" target="_blank">X</a>
-          <a href="https://hashnode.com/@black-shadow-team" target="_blank">Blog</a>
+        <div class="screens">
+          <div class="screen s1"></div>
+          <div class="screen s2"></div>
+          <div class="screen s3"></div>
         </div>
 
-        <div class="copyright">© <span id="year"></span> Black Shadow Team</div>
-      </footer>
-    </div>
+        <div class="employees">
+          <div class="employee e1"><span></span></div>
+          <div class="employee e2"><span></span></div>
+          <div class="employee e3"><span></span></div>
+          <div class="employee e4"><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section container" id="services">
+      <div class="section-heading">
+        <p class="eyebrow">Services</p>
+        <h2>Built for software growth.</h2>
+      </div>
+
+      <div class="info-grid">
+        <article class="info-card tilt-card">
+          <div class="num">01</div>
+          <h3>Product Engineering</h3>
+          <p>Web platforms, SaaS products, and user-focused software built for scale.</p>
+        </article>
+
+        <article class="info-card tilt-card">
+          <div class="num">02</div>
+          <h3>Cybersecurity</h3>
+          <p>Security-first systems, risk review, and stronger digital protection.</p>
+        </article>
+
+        <article class="info-card tilt-card">
+          <div class="num">03</div>
+          <h3>AI Automation</h3>
+          <p>Reliable AI integrations and workflows that improve speed and decision quality.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="service-section container" id="process">
+      <div class="section-heading">
+        <p class="eyebrow">Process</p>
+        <h2>From idea to launch.</h2>
+      </div>
+
+      <div class="process-grid">
+        <div class="step tilt-card">
+          <span>01</span>
+          <h3>Discover</h3>
+          <p>We study the problem, define scope, and map a practical product strategy.</p>
+        </div>
+
+        <div class="step tilt-card">
+          <span>02</span>
+          <h3>Build</h3>
+          <p>We prototype, develop, test, and refine the system until it is production-ready.</p>
+        </div>
+
+        <div class="step tilt-card">
+          <span>03</span>
+          <h3>Launch</h3>
+          <p>We deploy securely, optimize performance, and keep the product moving forward.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-wrap container">
+      <div class="cta-card">
+        <div>
+          <p class="eyebrow">Let’s build</p>
+          <h3>Need a product that looks premium and performs at scale?</h3>
+        </div>
+        <a href="#contact" class="btn btn-primary">Start Today</a>
+      </div>
+    </section>
+
+    <footer class="footer container" id="contact">
+      <div class="foot-brand">
+        <div class="brand-mark small">B</div>
+        <div>
+          <strong>Black Shadow Team</strong>
+          <small>Software • Security • AI</small>
+        </div>
+      </div>
+
+      <div class="foot-links">
+        <a href="https://github.com/blackshadowteamnet-netizen" target="_blank">GitHub</a>
+        <a href="https://x.com/BlackShadoTeam" target="_blank">X</a>
+        <a href="https://hashnode.com/@black-shadow-team" target="_blank">Blog</a>
+      </div>
+
+      <div class="copyright">© <span id="year"></span> Black Shadow Team</div>
+    </footer>
 
     <script src="script.js"></script>
   </body>

@@ -1,29 +1,56 @@
 (function () {
-  const counters = document.querySelectorAll('[data-count]');
-  const animateCount = (element) => {
-    const target = Number(element.dataset.count || 0);
-    const duration = 1200;
-    const start = performance.now();
+  const mascot = document.getElementById('mascot');
+  const speech = document.getElementById('speech');
+  const eyes = document.querySelectorAll('.eye');
+  const pupils = document.querySelectorAll('.pupil');
+  const handLeft = document.querySelector('.hand-left');
+  const handRight = document.querySelector('.hand-right');
 
-    const tick = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      element.textContent = Math.round(target * eased);
-      if (progress < 1) requestAnimationFrame(tick);
+  if (mascot) {
+    setTimeout(() => speech && speech.classList.add('show'), 550);
+    setTimeout(() => speech && speech.classList.remove('show'), 4200);
+
+    setTimeout(() => {
+      if (handRight) handRight.classList.add('wave');
+      setTimeout(() => handRight && handRight.classList.remove('wave'), 1100);
+    }, 900);
+
+    const blink = () => {
+      eyes.forEach((eye) => eye.classList.add('blink'));
+      setTimeout(() => eyes.forEach((eye) => eye.classList.remove('blink')), 260);
     };
 
-    requestAnimationFrame(tick);
-  };
+    setInterval(() => {
+      if (Math.random() > 0.6) blink();
+    }, 2800);
 
-  counters.forEach(animateCount);
+    document.addEventListener('mousemove', (event) => {
+      const rect = mascot.getBoundingClientRect();
+      const x = (event.clientX - (rect.left + rect.width / 2)) / rect.width;
+      const y = (event.clientY - (rect.top + rect.height / 2)) / rect.height;
+      pupils.forEach((pupil) => {
+        const tx = Math.max(-8, Math.min(8, x * 12));
+        const ty = Math.max(-8, Math.min(8, y * 10));
+        pupil.style.transform = `translate(${tx}px, ${ty}px)`;
+      });
+    });
 
-  const tilts = document.querySelectorAll('.tilt-card');
-  tilts.forEach((card) => {
+    mascot.addEventListener('click', () => {
+      if (speech) {
+        speech.classList.add('show');
+        setTimeout(() => speech.classList.remove('show'), 2600);
+      }
+      if (handLeft) handLeft.classList.add('wave');
+      setTimeout(() => handLeft && handLeft.classList.remove('wave'), 1050);
+    });
+  }
+
+  document.querySelectorAll('.tilt-card').forEach((card) => {
     card.addEventListener('mousemove', (event) => {
       const rect = card.getBoundingClientRect();
       const x = (event.clientX - rect.left) / rect.width - 0.5;
       const y = (event.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `perspective(1000px) rotateX(${(-y * 10).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg) translateY(-2px)`;
+      card.style.transform = `perspective(1000px) rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg) translateY(-4px)`;
     });
 
     card.addEventListener('mouseleave', () => {
@@ -31,55 +58,49 @@
     });
   });
 
-  const starCanvas = document.getElementById('starfield');
-  const ctx = starCanvas.getContext('2d');
-  const stars = [];
+  const starsCanvas = document.getElementById('stars');
+  const ctx = starsCanvas.getContext('2d');
+  let stars = [];
 
-  function updateStars() {
-    const dpr = window.devicePixelRatio || 1;
-    starCanvas.width = window.innerWidth * dpr;
-    starCanvas.height = window.innerHeight * dpr;
-    starCanvas.style.width = window.innerWidth + 'px';
-    starCanvas.style.height = window.innerHeight + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    const starCount = Math.min(140, Math.max(80, Math.floor(window.innerWidth / 12)));
-    stars.length = 0;
-
-    for (let i = 0; i < starCount; i++) {
-      stars.push({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        radius: Math.random() * 2 + 0.5,
-        alpha: Math.random() * 0.8 + 0.2,
-        speed: Math.random() * 0.8 + 0.25
-      });
-    }
+  function resizeStars() {
+    const ratio = window.devicePixelRatio || 1;
+    starsCanvas.width = window.innerWidth * ratio;
+    starsCanvas.height = window.innerHeight * ratio;
+    starsCanvas.style.width = window.innerWidth + 'px';
+    starsCanvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    createStars();
   }
 
-  function drawStars() {
-    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  function createStars() {
+    const count = Math.max(70, Math.floor(window.innerWidth / 12));
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      r: Math.random() * 2 + 0.7,
+      alpha: Math.random() * 0.9 + 0.2
+    }));
+  }
 
+  function tick() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     stars.forEach((star) => {
-      star.y += star.speed;
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
+      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+      ctx.fill();
+      star.y += 0.35;
       if (star.y > window.innerHeight) {
         star.y = 0;
         star.x = Math.random() * window.innerWidth;
       }
-
-      ctx.beginPath();
-      ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
-      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      ctx.fill();
     });
-
-    requestAnimationFrame(drawStars);
+    requestAnimationFrame(tick);
   }
 
-  updateStars();
-  drawStars();
-  window.addEventListener('resize', updateStars);
+  resizeStars();
+  requestAnimationFrame(tick);
+  window.addEventListener('resize', resizeStars);
 
-  const year = document.getElementById('year');
-  if (year) year.textContent = new Date().getFullYear();
+  document.getElementById('year').textContent = new Date().getFullYear();
 })();
