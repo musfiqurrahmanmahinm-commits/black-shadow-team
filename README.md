@@ -1,27 +1,27 @@
-Final software-company landing page update for Black Shadow Team
+Production-ready final polish for Black Shadow Team
 
-This version adds a more polished SaaS-style story with:
-- product-led hero section
-- insight cards
-- service blocks
-- process flow
-- CTA band
-- premium visual hierarchy
+This version adds:
+- polished SaaS homepage
+- pricing cards
+- stronger CTA and conversion layout
+- premium glassmorphism visuals
+- responsive mobile layout
+- animated starfield and count-up metrics
 
 Run locally:
 ```bash
 python -m http.server 8000
 ```
 
-Then open:
+Open:
 ```text
 http://localhost:8000
 ```
 
-Publish on GitHub Pages:
-1. Open repository settings
-2. Go to Pages
-3. Select main branch and /root folder
+To publish on GitHub Pages:
+1. Go to Settings > Pages
+2. Select branch: main
+3. Folder: /root
 4. Save
 
 Live URL pattern:

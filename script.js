@@ -1,124 +1,85 @@
-(function(){
-  const mascot = document.getElementById('mascot');
-  if (!mascot) return;
+(function () {
+  const counters = document.querySelectorAll('[data-count]');
+  const animateCount = (element) => {
+    const target = Number(element.dataset.count || 0);
+    const duration = 1200;
+    const start = performance.now();
 
-  const leftEye = mascot.querySelector('.eye-left');
-  const rightEye = mascot.querySelector('.eye-right');
-  const pupils = mascot.querySelectorAll('.pupil');
-  const speech = document.getElementById('mascot-speech');
-  const leftHand = mascot.querySelector('.hand-left');
-  const rightHand = mascot.querySelector('.hand-right');
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      element.textContent = Math.round(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+    };
 
-  setTimeout(() => speech.classList.add('show'), 500);
-  setTimeout(() => speech.classList.remove('show'), 4200);
+    requestAnimationFrame(tick);
+  };
 
-  setTimeout(() => {
-    if (rightHand) rightHand.classList.add('wave');
-    setTimeout(() => rightHand && rightHand.classList.remove('wave'), 1200);
-  }, 800);
+  counters.forEach(animateCount);
 
-  function blink() {
-    [leftEye, rightEye].forEach((e) => e && e.classList.add('blink'));
-    setTimeout(() => [leftEye, rightEye].forEach((e) => e && e.classList.remove('blink')), 320);
-  }
+  const tilts = document.querySelectorAll('.tilt-card');
+  tilts.forEach((card) => {
+    card.addEventListener('mousemove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(1000px) rotateX(${(-y * 10).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg) translateY(-2px)`;
+    });
 
-  setInterval(() => {
-    if (Math.random() > 0.6) blink();
-  }, 2800 + Math.random() * 2000);
-
-  document.addEventListener('mousemove', (ev) => {
-    const rect = mascot.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = (ev.clientX - cx) / rect.width;
-    const dy = (ev.clientY - cy) / rect.height;
-    const max = 8;
-
-    pupils.forEach((p) => {
-      const tx = Math.max(-max, Math.min(max, dx * max * 1.6));
-      const ty = Math.max(-max, Math.min(max, dy * max * 1.2));
-      p.style.transform = `translate(${tx}px, ${ty}px)`;
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'none';
     });
   });
 
-  mascot.addEventListener('click', () => {
-    if (speech) {
-      speech.classList.add('show');
-      setTimeout(() => speech.classList.remove('show'), 3000);
+  const starCanvas = document.getElementById('starfield');
+  const ctx = starCanvas.getContext('2d');
+  const stars = [];
+
+  function updateStars() {
+    const dpr = window.devicePixelRatio || 1;
+    starCanvas.width = window.innerWidth * dpr;
+    starCanvas.height = window.innerHeight * dpr;
+    starCanvas.style.width = window.innerWidth + 'px';
+    starCanvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const starCount = Math.min(140, Math.max(80, Math.floor(window.innerWidth / 12)));
+    stars.length = 0;
+
+    for (let i = 0; i < starCount; i++) {
+      stars.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        radius: Math.random() * 2 + 0.5,
+        alpha: Math.random() * 0.8 + 0.2,
+        speed: Math.random() * 0.8 + 0.25
+      });
     }
-    if (leftHand) leftHand.classList.add('wave');
-    setTimeout(() => leftHand && leftHand.classList.remove('wave'), 1100);
-  });
-})();
-
-const tiltCards = document.querySelectorAll('.tilt-card');
-tiltCards.forEach((card) => {
-  card.addEventListener('mousemove', (event) => {
-    const r = card.getBoundingClientRect();
-    const x = (event.clientX - r.left) / r.width - 0.5;
-    const y = (event.clientY - r.top) / r.height - 0.5;
-    const rx = -y * 10;
-    const ry = x * 10;
-    card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'none';
-  });
-});
-
-const animate = (el, end, suffix = '') => {
-  let start = 0;
-  const dur = 1200;
-  const t0 = performance.now();
-  const frame = (t) => {
-    const p = Math.min((t - t0) / dur, 1);
-    const v = Math.round(start + (end - start) * (1 - Math.pow(1 - p, 3)));
-    el.textContent = v + (suffix || '');
-    if (p < 1) requestAnimationFrame(frame);
-  };
-  requestAnimationFrame(frame);
-};
-
-const s1 = document.getElementById('stat-1');
-const s2 = document.getElementById('stat-2');
-const s3 = document.getElementById('stat-3');
-if (s1) animate(s1, 10, '+');
-if (s2) animate(s2, 100, '+');
-if (s3) animate(s3, 99, '%');
-
-const canvas = document.getElementById('stars');
-const ctx = canvas.getContext('2d');
-let stars = [];
-function resize() {
-  canvas.width = innerWidth * devicePixelRatio;
-  canvas.height = innerHeight * devicePixelRatio;
-  canvas.style.width = innerWidth + 'px';
-  canvas.style.height = innerHeight + 'px';
-  ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-  makeStars();
-}
-function makeStars() {
-  const count = Math.max(80, Math.floor(innerWidth / 8));
-  stars = Array.from({ length: count }, () => ({
-    x: Math.random() * innerWidth,
-    y: Math.random() * innerHeight,
-    r: Math.random() * 1.8 + 0.4,
-    a: Math.random() * 0.8 + 0.2
-  }));
-}
-function draw() {
-  ctx.clearRect(0, 0, innerWidth, innerHeight);
-  for (const s of stars) {
-    ctx.beginPath();
-    ctx.fillStyle = `rgba(255,255,255,${s.a})`;
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-    ctx.fill();
-    s.y += 0.3;
-    if (s.y > innerHeight) s.y = 0;
   }
-}
-resize();
-draw();
-setInterval(draw, 40);
-window.addEventListener('resize', resize);
-document.getElementById('year').textContent = new Date().getFullYear();
+
+  function drawStars() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    stars.forEach((star) => {
+      star.y += star.speed;
+      if (star.y > window.innerHeight) {
+        star.y = 0;
+        star.x = Math.random() * window.innerWidth;
+      }
+
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    requestAnimationFrame(drawStars);
+  }
+
+  updateStars();
+  drawStars();
+  window.addEventListener('resize', updateStars);
+
+  const year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+})();
