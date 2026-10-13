@@ -1,11 +1,6 @@
-HQ / public-view upgrade for Black Shadow Team
+HQ/public-view upgrade for Black Shadow Team
 
-This update makes the site feel more like a futuristic software company HQ with:
-- a 3D city/office facade
-- glowing corporate entrance sign
-- floating employee silhouettes
-- premium cyber-dark atmosphere
-- animated mascot and founder panel preserved
+This version adds a more realistic company HQ look with a glowing entrance, office facade, digital wall panels, and floating employee silhouettes.
 
 Run locally:
 ```bash
@@ -20,10 +15,11 @@ http://localhost:8000
 Publish on GitHub Pages:
 1. Open repository settings
 2. Go to Pages
-3. Select main branch and /root folder
-4. Save
+3. Select branch: main
+4. Folder: /root
+5. Save
 
-Live URL format:
+Live URL pattern:
 ```text
 https://<username>.github.io/black-shadow-team/
 ```
