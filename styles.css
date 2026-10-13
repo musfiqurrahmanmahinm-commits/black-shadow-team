@@ -87,7 +87,12 @@ h1 span{color:var(--accent-2);text-shadow:0 10px 40px rgba(34,211,238,0.06)}
   overflow: hidden;
   box-shadow: 0 26px 70px rgba(0,0,0,0.55);
 }
-
+.city-ambient {
+  position:absolute; inset:0; background:
+    radial-gradient(circle at center, rgba(34,211,238,0.12), transparent 35%),
+    radial-gradient(circle at 20% 10%, rgba(124,58,237,0.18), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(255,95,109,0.16), transparent 35%);
+}
 .skyline {
   position: absolute;
   left: 0; right: 0; bottom: 60px;
@@ -141,6 +146,10 @@ h1 span{color:var(--accent-2);text-shadow:0 10px 40px rgba(34,211,238,0.06)}
   border-radius: 18px;
   background: linear-gradient(180deg, rgba(34,211,238,0.24), rgba(124,58,237,0.12));
   box-shadow: 0 0 28px rgba(34,211,238,0.32);
+}
+.gate-sign {
+  position:absolute; left:50%; top:16px; transform:translateX(-50%);
+  letter-spacing:0.22em; font-size:12px; font-weight:700; color:#dfeafc;
 }
 
 .employees {
