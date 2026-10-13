@@ -1,172 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Black Shadow Team</title>
-    <meta
-      name="description"
-      content="Black Shadow Team — cyber security, AI, and digital innovation led by Musfiqur Rahim (Mahin)."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Black Shadow Team — Software & Security</title>
+    <meta name="description" content="Black Shadow Team — software, cybersecurity and AI solutions led by Musfiqur Rahim (Mahin)." />
+    <meta property="og:title" content="Black Shadow Team" />
+    <meta property="og:description" content="Software, cybersecurity and AI — led by Musfiqur Rahim (Mahin)." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
   </head>
+
   <body>
-    <div class="bg-grid"></div>
-    <canvas id="stars"></canvas>
+    <div class="scene">
+      <canvas id="stars"></canvas>
 
-    <header class="topbar">
-      <div class="brand">
-        <span class="brand-mark">B</span>
-        <span>Black Shadow Team</span>
-      </div>
-
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a class="btn btn-outline" href="#contact">Connect</a>
-    </header>
-
-    <main class="hero">
-      <section class="hero-copy">
-        <p class="eyebrow">Cyber Security • AI • Development</p>
-        <h1>Black Shadow <span>Team</span></h1>
-        <p class="lead">
-          We build bold digital systems with security, intelligence, and impact.
-          Founded and led by <strong>Musfiqur Rahim (Mahin)</strong>.
-        </p>
-
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#contact">Start Project</a>
-          <a class="btn btn-secondary" href="#about">Explore</a>
-        </div>
-
-        <ul class="stats" aria-label="Key metrics">
-          <li><strong id="stat-1">10+</strong><span>Years of Vision</span></li>
-          <li><strong id="stat-2">24/7</strong><span>Tech Support</span></li>
-          <li><strong id="stat-3">100%</strong><span>Driven by Impact</span></li>
-        </ul>
-      </section>
-
-      <section class="hero-visual" aria-label="Founder highlight card">
-        <div class="orbit orbit-1"></div>
-        <div class="orbit orbit-2"></div>
-        <div class="orbit orbit-3"></div>
-
-        <div class="glass-card tilt-card">
-          <div class="card-top">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-
-          <div class="profile">
-            <div class="avatar-wrap">
-              <div class="avatar-ring"></div>
-              <div class="avatar-core">B</div>
-            </div>
-
-            <div class="profile-text">
-              <p class="mini-label">Founder & CEO</p>
-              <h3>Musfiqur Rahim</h3>
-              <p class="role">Mahin</p>
-            </div>
-          </div>
-
-          <div class="metrics">
-            <div class="metric">
-              <span>Focus</span>
-              <strong>AI • Cyber</strong>
-            </div>
-            <div class="metric">
-              <span>Mission</span>
-              <strong>Innovation</strong>
-            </div>
-          </div>
-
-          <div class="signal" aria-hidden="true">
-            <span class="signal-bar"></span>
-            <span class="signal-bar"></span>
-            <span class="signal-bar"></span>
-            <span class="signal-bar"></span>
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <div class="brand-text">
+            <div class="title">Black Shadow Team</div>
+            <div class="subtitle">Software • Security • AI</div>
           </div>
         </div>
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#team">Team</a>
+          <a href="#profiles">Profiles</a>
+        </nav>
+        <a class="btn" href="#contact">Contact</a>
+      </header>
+
+      <main class="hero" role="main">
+        <section class="hero-left">
+          <p class="eyebrow">Digital Product Studio</p>
+          <h1>Black Shadow <span>Team</span></h1>
+          <p class="lead">We build production-grade software, secure infrastructure and AI-powered products. Founded &amp; led by <strong>Musfiqur Rahim (Mahin)</strong>.</p>
+
+          <div class="actions">
+            <a class="btn primary" href="#contact">Start a Project</a>
+            <a class="btn ghost" href="#profiles">View Profiles</a>
+          </div>
+
+          <ul class="key-stats">
+            <li><strong id="stat-1">10+</strong><span>Years</span></li>
+            <li><strong id="stat-2">100+</strong><span>Projects</span></li>
+            <li><strong id="stat-3">99%</strong><span>Reliability</span></li>
+          </ul>
+        </section>
+
+        <section class="hero-right" id="profiles" aria-label="Founder & profiles">
+          <div class="card tilt-card">
+            <div class="card-3d">
+              <div class="avatar">M</div>
+              <div class="person">
+                <div class="role">Founder &amp; CEO</div>
+                <h3>Musfiqur Rahim</h3>
+                <div class="handle">@blackshadowteam</div>
+              </div>
+            </div>
+
+            <div class="links">
+              <h4>All Profiles</h4>
+              <ul>
+                <li><a href="https://blackshadowteam.itch.io/" target="_blank">itch.io</a></li>
+                <li><a href="https://substack.com/@blackshadowteam" target="_blank">Substack</a></li>
+                <li><a href="https://github.com/blackshadowteamnet-netizen" target="_blank">GitHub</a></li>
+                <li><a href="https://dev.to/black_shadow_team" target="_blank">Dev.to</a></li>
+                <li><a href="https://medium.com/@blackshadowteam.net" target="_blank">Medium</a></li>
+                <li><a href="https://x.com/BlackShadoTeam" target="_blank">X / Twitter</a></li>
+                <li><a href="https://bsky.app/profile/black-shadow-team.bsky.social" target="_blank">Bluesky</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61591268330812" target="_blank">Facebook (1)</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100090580510673" target="_blank">Facebook (2)</a></li>
+                <li><a href="https://www.instagram.com/black_shadow_team_x/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.threads.net/@blacky_mahin_x" target="_blank">Threads</a></li>
+                <li><a href="https://www.reddit.com/user/blackshadowteamoffic/" target="_blank">Reddit</a></li>
+                <li><a href="https://mix.com/black_shadow_team" target="_blank">Mix</a></li>
+                <li><a href="https://bn.quora.com/profile/Black-Shadow-Team" target="_blank">Quora (bn)</a></li>
+                <li><a href="https://hackernoon.com/u/black-shadow-team" target="_blank">HackerNoon</a></li>
+                <li><a href="https://hashnode.com/@black-shadow-team" target="_blank">Hashnode</a></li>
+                <li><a href="https://profiles.wordpress.org/blackshadowteam" target="_blank">WordPress</a></li>
+                <li><a href="https://black-shadow-team.blogspot.com/" target="_blank">Blogger</a></li>
+                <li><a href="https://www.freecodecamp.org/blackshadowteam" target="_blank">freeCodeCamp</a></li>
+                <li><a href="https://www.kaggle.com/musfiqurrahim" target="_blank">Kaggle</a></li>
+                <li><a href="https://dzone.com/users/5577855/blackshadowteam.html" target="_blank">DZone</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+      </main>
+
+      <section id="services" class="section">
+        <div class="container">
+          <h2>Services</h2>
+          <div class="grid">
+            <div class="service tile tilt-card">Product Engineering</div>
+            <div class="service tile tilt-card">Cybersecurity & Pentest</div>
+            <div class="service tile tilt-card">AI & Data Science</div>
+            <div class="service tile tilt-card">Design & Brand</div>
+          </div>
+        </div>
       </section>
-    </main>
 
-    <section id="about" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">About</p>
-        <h2>We craft digital power.</h2>
-      </div>
+      <section id="team" class="section light">
+        <div class="container">
+          <h2>Leadership</h2>
+          <div class="lead">
+            <h3>Musfiqur Rahim (Mahin)</h3>
+            <p>Founder &amp; CEO — Builder focused on secure, scalable products and practical AI.</p>
+          </div>
+        </div>
+      </section>
 
-      <div class="feature-grid">
-        <article class="feature-card tilt-card">
-          <div class="feature-icon">01</div>
-          <h3>Secure Systems</h3>
-          <p>We design modern digital architecture with a cybersecurity-first mindset.</p>
-        </article>
+      <footer id="contact" class="footer">
+        <div class="footer-left">
+          <div class="brand-mark small">B</div>
+          <div>
+            <strong>Black Shadow Team</strong>
+            <div class="muted">Software • Security • AI</div>
+          </div>
+        </div>
 
-        <article class="feature-card tilt-card">
-          <div class="feature-icon">02</div>
-          <h3>AI Innovation</h3>
-          <p>Smart tools and data-driven strategies that turn ideas into real impact.</p>
-        </article>
-
-        <article class="feature-card tilt-card">
-          <div class="feature-icon">03</div>
-          <h3>Web Experience</h3>
-          <p>High-performance websites and digital experiences with premium presentation.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="services" class="section section-alt">
-      <div class="section-heading">
-        <p class="eyebrow">Capabilities</p>
-        <h2>What Black Shadow Team delivers</h2>
-      </div>
-
-      <div class="service-list">
-        <div class="service-item"><span>01</span><p>Web Development</p></div>
-        <div class="service-item"><span>02</span><p>Cyber Security</p></div>
-        <div class="service-item"><span>03</span><p>AI & Automation</p></div>
-        <div class="service-item"><span>04</span><p>Brand Strategy</p></div>
-      </div>
-    </section>
-
-    <section id="team" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Leadership</p>
-        <h2>Founder & CEO</h2>
-      </div>
-
-      <div class="leadership-card tilt-card">
-        <div class="leader-badge">Mahin</div>
-        <h3>Musfiqur Rahim</h3>
-        <p>
-          Visionary leader combining technology, security, and innovation to shape a more
-          powerful digital future for Black Shadow Team.
-        </p>
-      </div>
-    </section>
-
-    <footer id="contact" class="footer">
-      <div>
-        <p class="eyebrow">Black Shadow Team</p>
-        <h3>Let’s build something powerful.</h3>
-      </div>
-      <a class="btn btn-primary" href="mailto:hello@blackshadowteam.com">hello@blackshadowteam.com</a>
-    </footer>
+        <div class="footer-right">
+          <div class="social-inline">
+            <a href="https://github.com/blackshadowteamnet-netizen" target="_blank">GitHub</a>
+            <a href="https://x.com/BlackShadoTeam" target="_blank">X</a>
+            <a href="https://hashnode.com/@black-shadow-team" target="_blank">Blog</a>
+          </div>
+          <div class="copyright">&copy; <span id="year"></span> Black Shadow Team</div>
+        </div>
+      </footer>
+    </div>
 
     <script src="script.js"></script>
   </body>

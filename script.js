@@ -1,96 +1,37 @@
+// tilt interaction, stats, and stars (kept lightweight)
 const tiltCards = document.querySelectorAll('.tilt-card');
-
-tiltCards.forEach((card) => {
-  card.addEventListener('mousemove', (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    const rotateY = ((x / rect.width) - 0.5) * 18;
-    const rotateX = (0.5 - (y / rect.height)) * 18;
-
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+tiltCards.forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width - 0.5;
+    const y=(e.clientY-r.top)/r.height - 0.5;
+    const rx = (-y)*10;
+    const ry = x*10;
+    card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
   });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='none'});
 });
 
-const stat1 = document.getElementById('stat-1');
-const stat2 = document.getElementById('stat-2');
-const stat3 = document.getElementById('stat-3');
-
-const animateValue = (element, endValue, suffix = '') => {
-  let start = 0;
-  const duration = 1400;
-  const startTime = performance.now();
-
-  function update(now) {
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(start + (endValue - start) * eased);
-
-    element.textContent = current + suffix;
-    if (progress < 1) {
-      requestAnimationFrame(update);
-    }
+// stats animation
+const animate = (el, end, suffix='')=>{
+  let start=0;const dur=1200;const t0 = performance.now();
+  const frame = (t)=>{
+    const p = Math.min((t-t0)/dur,1);
+    const v = Math.round(start + (end-start)*(1-Math.pow(1-p,3)));
+    el.textContent = v + (suffix||'');
+    if(p<1) requestAnimationFrame(frame);
   }
-
-  requestAnimationFrame(update);
-};
-
-animateValue(stat1, 10, '+');
-animateValue(stat2, 24, '/7');
-animateValue(stat3, 100, '%');
-
-const canvas = document.getElementById('stars');
-const ctx = canvas.getContext('2d');
-let stars = [];
-
-function resizeCanvas() {
-  canvas.width = window.innerWidth * window.devicePixelRatio;
-  canvas.height = window.innerHeight * window.devicePixelRatio;
-  canvas.style.width = window.innerWidth + 'px';
-  canvas.style.height = window.innerHeight + 'px';
-  ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
-  generateStars();
+  requestAnimationFrame(frame);
 }
+const s1=document.getElementById('stat-1');const s2=document.getElementById('stat-2');const s3=document.getElementById('stat-3');
+if(s1) animate(s1,10,'+'); if(s2) animate(s2,100,'+'); if(s3) animate(s3,99,'%');
 
-function generateStars() {
-  const count = Math.min(220, Math.max(80, Math.floor(window.innerWidth / 8)));
-  stars = Array.from({ length: count }, () => ({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    radius: Math.random() * 2.2 + 0.8,
-    alpha: Math.random() * 0.8 + 0.2
-  }));
-}
+// stars background
+const canvas=document.getElementById('stars');const ctx = canvas.getContext('2d');
+let stars=[];function resize(){canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);makeStars();}
+function makeStars(){const count=Math.max(80,Math.floor(innerWidth/8));stars=Array.from({length:count},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.8+0.4,a:Math.random()*0.8+0.2}));}
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const s of stars){ctx.beginPath();ctx.fillStyle=`rgba(255,255,255,${s.a})`;ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();s.y+=0.3; if(s.y>innerHeight) s.y=0;}}
+resize();draw();setInterval(draw,40);addEventListener('resize',resize);
 
-function drawStars() {
-  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-  stars.forEach((star) => {
-    ctx.beginPath();
-    ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
-    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-    ctx.fill();
-  });
-}
-
-resizeCanvas();
-drawStars();
-
-window.addEventListener('resize', resizeCanvas);
-
-setInterval(() => {
-  stars.forEach((star) => {
-    star.y += 0.5;
-    if (star.y > window.innerHeight) {
-      star.y = 0;
-      star.x = Math.random() * window.innerWidth;
-    }
-  });
-  drawStars();
-}, 35);
+// footer year
+document.getElementById('year').textContent = new Date().getFullYear();

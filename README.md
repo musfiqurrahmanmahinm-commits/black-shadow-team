@@ -1,40 +1,18 @@
-# Black Shadow Team
+Updated site: added full profiles list and improved 3D look + branding.
 
-A dark, 3D-style landing page for the Black Shadow Team brand.
+What I changed
+- index.html: added a Profiles block containing every account link you provided and emphasized @blackshadowteam handle.
+- styles.css: updated visual style for stronger 3D/glass look and responsive layout.
+- script.js: lightweight tilt, stars, and stats animations.
 
-## Founder / CEO
+Next steps to publish (GitHub Pages)
+1. Go to the repo: https://github.com/musfiqurrahmanmahinm-commits/black-shadow-team
+2. Settings → Pages → Branch: main, Folder: / (root) → Save
+3. Wait a minute. The site will be available at: https://musfiqurrahmanmahinm-commits.github.io/black-shadow-team/
 
-Musfiqur Rahim (Mahin)
+If you want, I can also:
+- Add a custom domain (CNAME) file if you own a domain.
+- Create a one-click Vercel or Netlify setup (auto-deploy on push).
+- Polish icons and add Open Graph images.
 
-## Local preview
-
-Open `index.html` directly in a browser, or run:
-
-```bash
-python -m http.server 8000
-```
-
-Then visit:
-
-```text
-http://localhost:8000
-```
-
-## Free hosting
-
-This site is static and works well with free hosting such as:
-
-- GitHub Pages
-- Cloudflare Pages
-- Netlify
-- Vercel
-
-## GitHub Pages setup
-
-1. Push this repository to GitHub.
-2. Open repository settings.
-3. Go to "Pages".
-4. Select the main branch and root folder.
-5. Save.
-
-Your website will be published as a GitHub Pages site using your username and repository name.
+Tell me if you want the GitHub Pages step done by me (I can't change your GitHub settings, but I can give exact clicks and a screenshot guide), or if you want me to further style the site (dark/red cyberpunk, animated rings, or a contact form).
