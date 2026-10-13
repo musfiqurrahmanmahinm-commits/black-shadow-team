@@ -1,6 +1,12 @@
-HQ/public-view upgrade for Black Shadow Team
+Final software-company landing page update for Black Shadow Team
 
-This version adds a more realistic company HQ look with a glowing entrance, office facade, digital wall panels, and floating employee silhouettes.
+This version adds a more polished SaaS-style story with:
+- product-led hero section
+- insight cards
+- service blocks
+- process flow
+- CTA band
+- premium visual hierarchy
 
 Run locally:
 ```bash
@@ -15,9 +21,8 @@ http://localhost:8000
 Publish on GitHub Pages:
 1. Open repository settings
 2. Go to Pages
-3. Select branch: main
-4. Folder: /root
-5. Save
+3. Select main branch and /root folder
+4. Save
 
 Live URL pattern:
 ```text
