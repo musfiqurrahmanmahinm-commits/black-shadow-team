@@ -1,12 +1,11 @@
-Production-ready final polish for Black Shadow Team
+Production-ready polished homepage for Black Shadow Team
 
 This version adds:
 - polished SaaS homepage
-- pricing cards
-- stronger CTA and conversion layout
+- stronger CTA and conversion-focused layout
 - premium glassmorphism visuals
 - responsive mobile layout
-- animated starfield and count-up metrics
+- animated starfield and motion effects
 
 Run locally:
 ```bash
@@ -21,7 +20,7 @@ http://localhost:8000
 To publish on GitHub Pages:
 1. Go to Settings > Pages
 2. Select branch: main
-3. Folder: /root
+3. Folder: /
 4. Save
 
 Live URL pattern:
